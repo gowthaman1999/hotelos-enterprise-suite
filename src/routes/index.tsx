@@ -69,7 +69,7 @@ function Hero() {
             HotelOS AI 3.0 · Now live across 8,400+ properties
           </div>
 
-          <h1 className="mt-8 text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-[88px]">
+          <h1 className="mt-8 text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-[85px]">
             Powering the Future of<br />
             <span className="text-gradient">Hospitality Operations</span>
           </h1>
