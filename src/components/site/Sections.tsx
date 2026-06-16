@@ -110,7 +110,6 @@ export function Ecosystem() {
 }
 
 /* -------------------- Interactive product showcase -------------------- */
-import { useState } from "react";
 const tabs = [
   {
     k: "PMS", label: "Property Management",
