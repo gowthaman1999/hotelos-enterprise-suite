@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Hotel, CalendarCheck, Network, Sparkles, MessageCircle, BedDouble, Utensils, BarChart3,
   Check, Minus, Search, Bookmark, KeyRound, Coffee, Star as StarIcon, Repeat,
