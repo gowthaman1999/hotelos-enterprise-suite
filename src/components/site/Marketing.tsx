@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { Star, ChevronDown, Check, ArrowRight, Sparkles } from "lucide-react";
+import { toast } from "sonner";
 
 /* -------------------- Testimonials -------------------- */
 const tms = [
@@ -111,9 +112,9 @@ export function ROI() {
               <Row k="Avg revenue per room (gain)" v={fmt(gain / rooms)} />
             </div>
 
-            <button className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-ink">
+            <a href="#demo" className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-ink cursor-pointer hover:opacity-95">
               Book a tailored revenue audit <ArrowRight className="h-4 w-4" />
-            </button>
+            </a>
             <div className="mt-3 text-center text-[11px] text-white/40">
               Based on average 18% revenue lift across 1,200+ HotelOS customers.
             </div>
@@ -211,11 +212,11 @@ export function Pricing() {
               </div>
               <p className={`mt-3 text-sm ${p.popular ? "text-white/70" : "text-ink-soft"}`}>{p.d}</p>
 
-              <button className={`mt-7 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold ${
+              <a href="#demo" className={`mt-7 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold cursor-pointer hover:opacity-95 ${
                 p.popular ? "bg-white text-ink" : "bg-ink text-white"
               }`}>
                 {p.cta} <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
 
               <ul className="mt-8 space-y-3 text-sm">
                 {p.f.map((f) => (
@@ -279,6 +280,27 @@ export function FAQ() {
 
 /* -------------------- Contact / Demo CTA + Footer -------------------- */
 export function Contact() {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const email = String(data.get("email") || "");
+    if (!email) {
+      toast.error("Please provide a work email so we can reach you.");
+      return;
+    }
+    setSubmitting(true);
+    setTimeout(() => {
+      toast.success("Demo request received", {
+        description: `We'll be in touch at ${email} within 1 business day.`,
+      });
+      form.reset();
+      setSubmitting(false);
+    }, 700);
+  };
+
   return (
     <section className="relative overflow-hidden py-32">
       <div className="absolute inset-0 bg-[oklch(0.155_0.04_265)]" aria-hidden />
@@ -305,18 +327,22 @@ export function Contact() {
             </ul>
           </div>
 
-          <form className="glass rounded-3xl p-8 shadow-glow">
+          <form onSubmit={handleSubmit} className="glass rounded-3xl p-8 shadow-glow">
             <div className="grid gap-4 md:grid-cols-2">
-              <Field label="First name" />
-              <Field label="Last name" />
-              <Field label="Work email" type="email" />
-              <Field label="Hotel group" />
-              <Field label="Properties" placeholder="e.g. 12" />
-              <Field label="Country" />
+              <Field label="First name" name="firstName" required />
+              <Field label="Last name" name="lastName" required />
+              <Field label="Work email" name="email" type="email" required />
+              <Field label="Hotel group" name="group" />
+              <Field label="Properties" name="properties" placeholder="e.g. 12" />
+              <Field label="Country" name="country" />
             </div>
-            <Field label="Tell us about your operation" textarea />
-            <button className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-ink">
-              Schedule my demo <ArrowRight className="h-4 w-4" />
+            <Field label="Tell us about your operation" name="notes" textarea />
+            <button
+              type="submit"
+              disabled={submitting}
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-ink cursor-pointer transition hover:opacity-95 disabled:opacity-60"
+            >
+              {submitting ? "Scheduling…" : "Schedule my demo"} <ArrowRight className="h-4 w-4" />
             </button>
             <p className="mt-3 text-center text-[11px] text-white/50">
               We'll respond within 1 business day. No spam, ever.
@@ -329,17 +355,17 @@ export function Contact() {
 }
 
 function Field({
-  label, type = "text", textarea = false, placeholder,
-}: { label: string; type?: string; textarea?: boolean; placeholder?: string }) {
+  label, name, type = "text", textarea = false, placeholder, required,
+}: { label: string; name: string; type?: string; textarea?: boolean; placeholder?: string; required?: boolean }) {
   const cls =
     "w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
   return (
     <label className={`block ${textarea ? "mt-4" : ""}`}>
-      <span className="mb-1.5 block text-xs font-medium text-white/70">{label}</span>
+      <span className="mb-1.5 block text-xs font-medium text-white/70">{label}{required && <span className="text-accent"> *</span>}</span>
       {textarea ? (
-        <textarea rows={3} placeholder={placeholder} className={cls} />
+        <textarea name={name} rows={3} placeholder={placeholder} required={required} className={cls} />
       ) : (
-        <input type={type} placeholder={placeholder} className={cls} />
+        <input name={name} type={type} placeholder={placeholder} required={required} className={cls} />
       )}
     </label>
   );
@@ -361,15 +387,15 @@ export function Footer() {
               The operating system for modern hospitality. Built for luxury hotels, resorts, boutique properties and vacation rentals worldwide.
             </p>
           </div>
-          {[
-            ["Platform", ["PMS", "Booking Engine", "Channel Manager", "AI Revenue", "Guest Messaging"]],
-            ["Company", ["About", "Customers", "Careers", "Newsroom", "Contact"]],
-            ["Resources", ["Docs", "Blog", "Help center", "Security", "Status"]],
-          ].map(([t, items]) => (
-            <div key={t as string}>
+          {([
+            ["Platform", [["PMS", "#platform"], ["Booking Engine", "#platform"], ["Channel Manager", "#platform"], ["AI Revenue", "#solutions"], ["Guest Messaging", "#solutions"]]],
+            ["Company", [["About", "#customers"], ["Customers", "#customers"], ["Careers", "#demo"], ["Newsroom", "#customers"], ["Contact", "#demo"]]],
+            ["Resources", [["Docs", "#resources"], ["Blog", "#resources"], ["Help center", "#resources"], ["Security", "#resources"], ["Status", "#resources"]]],
+          ] as Array<[string, Array<[string, string]>]>).map(([t, items]) => (
+            <div key={t}>
               <div className="text-sm font-semibold text-ink">{t}</div>
               <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
-                {(items as string[]).map(i => <li key={i}><a className="hover:text-ink">{i}</a></li>)}
+                {items.map(([label, href]) => <li key={label}><a href={href} className="hover:text-ink cursor-pointer">{label}</a></li>)}
               </ul>
             </div>
           ))}

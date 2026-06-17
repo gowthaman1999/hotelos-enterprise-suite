@@ -33,20 +33,22 @@ function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-      <Hero />
-      <TrustedBy />
-      <Ecosystem />
-      <Showcase />
-      <AIIntel />
-      <Journey />
-      <Outcomes />
-      <Comparison />
-      <Testimonials />
-      <ROI />
-      <Pricing />
-      <FAQ />
-      <Contact />
-      <Footer />
+      <main>
+        <section id="top"><Hero /></section>
+        <TrustedBy />
+        <section id="platform"><Ecosystem /></section>
+        <section id="solutions"><Showcase /></section>
+        <AIIntel />
+        <Journey />
+        <Outcomes />
+        <Comparison />
+        <section id="customers"><Testimonials /></section>
+        <ROI />
+        <section id="pricing"><Pricing /></section>
+        <section id="resources"><FAQ /></section>
+        <section id="demo"><Contact /></section>
+        <Footer />
+      </main>
     </div>
   );
 }
@@ -80,11 +82,11 @@ function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-ink shadow-glow transition hover:translate-y-[-1px]">
+            <a href="#demo" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-ink shadow-glow transition hover:translate-y-[-1px] cursor-pointer">
               Book a Demo
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <a className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10">
+            <a href="#solutions" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10 cursor-pointer">
               <PlayCircle className="h-4 w-4" /> Watch Platform Tour
             </a>
           </div>

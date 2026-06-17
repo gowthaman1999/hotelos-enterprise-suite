@@ -2,15 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
 
-const products = [
-  ["Property Management", "Front office, reservations, folios"],
-  ["Booking Engine", "Direct, commission-free bookings"],
-  ["Channel Manager", "200+ OTAs, real-time sync"],
-  ["AI Revenue", "Dynamic pricing & forecasting"],
-  ["Guest Messaging", "WhatsApp, email, in-stay"],
-  ["Housekeeping", "Mobile-first task management"],
-  ["POS & Restaurant", "F&B, retail, spa, billing"],
-  ["Analytics", "Group & multi-property BI"],
+const products: Array<[string, string, string]> = [
+  ["Property Management", "Front office, reservations, folios", "#platform"],
+  ["Booking Engine", "Direct, commission-free bookings", "#platform"],
+  ["Channel Manager", "200+ OTAs, real-time sync", "#platform"],
+  ["AI Revenue", "Dynamic pricing & forecasting", "#solutions"],
+  ["Guest Messaging", "WhatsApp, email, in-stay", "#solutions"],
+  ["Housekeeping", "Mobile-first task management", "#solutions"],
+  ["POS & Restaurant", "F&B, retail, spa, billing", "#platform"],
+  ["Analytics", "Group & multi-property BI", "#platform"],
+];
+
+const navLinks: Array<[string, string]> = [
+  ["Platform", "#platform"],
+  ["Solutions", "#solutions"],
+  ["Customers", "#customers"],
+  ["Pricing", "#pricing"],
+  ["Resources", "#resources"],
 ];
 
 export function Nav() {
@@ -50,14 +58,14 @@ export function Nav() {
 
           <div className={`hidden items-center gap-1 md:flex ${scrolled ? "text-ink" : "text-white/90"}`}>
             <div className="relative" onMouseEnter={() => setMega(true)} onMouseLeave={() => setMega(false)}>
-              <button className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10">
+              <a href="#platform" className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10 cursor-pointer">
                 Platform <ChevronDown className="h-3.5 w-3.5" />
-              </button>
+              </a>
               {mega && (
                 <div className="absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3">
                   <div className="glass-light grid grid-cols-2 gap-1 rounded-2xl p-3 shadow-elevated">
-                    {products.map(([t, d]) => (
-                      <a key={t} className="rounded-xl p-3 hover:bg-secondary/5">
+                    {products.map(([t, d, href]) => (
+                      <a key={t} href={href} onClick={() => setMega(false)} className="rounded-xl p-3 hover:bg-secondary/5 cursor-pointer">
                         <div className="text-sm font-semibold text-ink">{t}</div>
                         <div className="text-xs text-ink-soft">{d}</div>
                       </a>
@@ -66,17 +74,16 @@ export function Nav() {
                 </div>
               )}
             </div>
-            <a className="rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10">Solutions</a>
-            <a className="rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10">Customers</a>
-            <a className="rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10">Pricing</a>
-            <a className="rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10">Resources</a>
+            {navLinks.slice(1).map(([label, href]) => (
+              <a key={label} href={href} className="rounded-lg px-3 py-2 text-sm font-medium hover:bg-white/10 cursor-pointer">{label}</a>
+            ))}
           </div>
 
           <div className="hidden items-center gap-2 md:flex">
-            <a className={`rounded-lg px-3 py-2 text-sm font-medium ${scrolled ? "text-ink hover:bg-muted" : "text-white/90 hover:bg-white/10"}`}>
+            <a href="#demo" className={`rounded-lg px-3 py-2 text-sm font-medium cursor-pointer ${scrolled ? "text-ink hover:bg-muted" : "text-white/90 hover:bg-white/10"}`}>
               Sign in
             </a>
-            <a className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:opacity-95">
+            <a href="#demo" className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:opacity-95 cursor-pointer">
               Book a Demo
             </a>
           </div>
@@ -93,10 +100,10 @@ export function Nav() {
         {open && (
           <div className="glass-light mt-2 rounded-2xl p-4 shadow-elevated md:hidden">
             <div className="flex flex-col gap-1 text-ink">
-              {["Platform", "Solutions", "Customers", "Pricing", "Resources"].map((x) => (
-                <a key={x} className="rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-muted">{x}</a>
+              {navLinks.map(([label, href]) => (
+                <a key={label} href={href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-muted cursor-pointer">{label}</a>
               ))}
-              <a className="mt-2 rounded-lg bg-brand px-4 py-2.5 text-center text-sm font-semibold text-white">
+              <a href="#demo" onClick={() => setOpen(false)} className="mt-2 rounded-lg bg-brand px-4 py-2.5 text-center text-sm font-semibold text-white cursor-pointer">
                 Book a Demo
               </a>
             </div>

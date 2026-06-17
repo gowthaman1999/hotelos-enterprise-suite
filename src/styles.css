@@ -116,7 +116,8 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { -webkit-font-smoothing: antialiased; }
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 96px; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

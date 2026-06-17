@@ -86,9 +86,10 @@ export function Ecosystem() {
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {modules.map(({ i: Icon, t, d, c }) => (
-            <div
+            <a
               key={t}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated"
+              href="#solutions"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elevated cursor-pointer"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${c} opacity-0 transition-opacity group-hover:opacity-100`} />
               <div className="relative">
@@ -101,7 +102,7 @@ export function Ecosystem() {
                   Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -182,9 +183,9 @@ export function Showcase() {
                 </li>
               ))}
             </ul>
-            <button className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-ink">
+            <a href="#demo" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-ink cursor-pointer hover:opacity-95">
               Explore the module <ArrowUpRight className="h-4 w-4" />
-            </button>
+            </a>
           </div>
 
           <div className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-2 shadow-glow">
