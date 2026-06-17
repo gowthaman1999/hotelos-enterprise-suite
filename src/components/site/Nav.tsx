@@ -52,7 +52,7 @@ export function Nav() {
               <Sparkles className="h-4 w-4" />
             </div>
             <span className={`text-lg font-bold tracking-tight ${scrolled ? "text-ink" : "text-white"}`}>
-              HotelOS
+              BlackStone AI
             </span>
           </Link>
 

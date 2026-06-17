@@ -12,13 +12,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HotelOS — Powering the Future of Hospitality Operations" },
+      { title: "BlackStone AI — Powering the Future of Hospitality Operations" },
       {
         name: "description",
         content:
           "One intelligent platform for revenue, hotel operations, guest experience and automation. Trusted by 8,400+ properties across 62 countries.",
       },
-      { property: "og:title", content: "HotelOS — Hospitality Operations Platform" },
+      { property: "og:title", content: "BlackStone AI — Hospitality Operations Platform" },
       {
         property: "og:description",
         content:
@@ -68,7 +68,7 @@ function Hero() {
             <span className="grid h-4 w-4 place-items-center rounded-full bg-accent text-[10px] font-bold text-ink">
               <Sparkles className="h-2.5 w-2.5" />
             </span>
-            HotelOS AI 3.0 · Now live across 8,400+ properties
+            BlackStone AI 3.0 · Now live across 8,400+ properties
           </div>
 
           <h1 className="mt-8 text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-[85px]">
