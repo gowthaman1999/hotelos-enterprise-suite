@@ -111,9 +111,9 @@ export function ROI() {
               <Row k="Avg revenue per room (gain)" v={fmt(gain / rooms)} />
             </div>
 
-            <button className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-ink">
+            <a href="#demo" className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-ink cursor-pointer hover:opacity-95">
               Book a tailored revenue audit <ArrowRight className="h-4 w-4" />
-            </button>
+            </a>
             <div className="mt-3 text-center text-[11px] text-white/40">
               Based on average 18% revenue lift across 1,200+ HotelOS customers.
             </div>
@@ -211,11 +211,11 @@ export function Pricing() {
               </div>
               <p className={`mt-3 text-sm ${p.popular ? "text-white/70" : "text-ink-soft"}`}>{p.d}</p>
 
-              <button className={`mt-7 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold ${
+              <a href="#demo" className={`mt-7 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold cursor-pointer hover:opacity-95 ${
                 p.popular ? "bg-white text-ink" : "bg-ink text-white"
               }`}>
                 {p.cta} <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
 
               <ul className="mt-8 space-y-3 text-sm">
                 {p.f.map((f) => (
