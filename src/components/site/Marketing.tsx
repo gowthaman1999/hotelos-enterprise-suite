@@ -5,7 +5,7 @@ import { toast } from "sonner";
 /* -------------------- Testimonials -------------------- */
 const tms = [
   {
-    q: "HotelOS replaced four legacy tools across our 38 properties in three months. RevPAR is up 22%.",
+    q: "BlackStone AI replaced four legacy tools across our 38 properties in three months. RevPAR is up 22%.",
     n: "Élise Marchand", r: "VP Operations, Maison d'Or Hotels", c: "Paris · 38 properties",
   },
   {
