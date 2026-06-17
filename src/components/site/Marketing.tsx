@@ -102,7 +102,7 @@ export function ROI() {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-[oklch(0.21_0.05_265)] p-8">
-            <div className="text-xs uppercase tracking-widest text-white/50">Projected with HotelOS</div>
+            <div className="text-xs uppercase tracking-widest text-white/50">Projected with BlackStone AI</div>
             <div className="mt-3 text-5xl font-bold text-gradient md:text-6xl">{fmt(gain)}</div>
             <div className="mt-1 text-sm text-white/60">Additional annual revenue</div>
 
@@ -116,7 +116,7 @@ export function ROI() {
               Book a tailored revenue audit <ArrowRight className="h-4 w-4" />
             </a>
             <div className="mt-3 text-center text-[11px] text-white/40">
-              Based on average 18% revenue lift across 1,200+ HotelOS customers.
+              Based on average 18% revenue lift across 1,200+ BlackStone AI customers.
             </div>
           </div>
         </div>
@@ -238,9 +238,9 @@ export function Pricing() {
 const faq = [
   ["How long does implementation take?", "Most independent hotels are live in 5–10 days. Multi-property groups typically go live property-by-property over 4–8 weeks with a dedicated implementation manager."],
   ["Can we migrate from our current PMS?", "Yes. We've built migration tooling for the 30+ most common PMS platforms — reservations, guest history, rate plans and folios come across cleanly."],
-  ["Does HotelOS connect to Booking.com, Expedia and Airbnb?", "Yes — and 200+ more channels through our certified Channel Manager, with sub-second sync."],
+  ["Does BlackStone AI connect to Booking.com, Expedia and Airbnb?", "Yes — and 200+ more channels through our certified Channel Manager, with sub-second sync."],
   ["Is the AI revenue engine optional?", "AI pricing is included in Group and Enterprise plans. You can run it in advisory mode and approve every change, or let it operate autonomously."],
-  ["What about data security and compliance?", "HotelOS is SOC 2 Type II, PCI-DSS Level 1, GDPR and ISO 27001 certified. Data is encrypted at rest and in transit."],
+  ["What about data security and compliance?", "BlackStone AI is SOC 2 Type II, PCI-DSS Level 1, GDPR and ISO 27001 certified. Data is encrypted at rest and in transit."],
   ["Do you support multi-property and multi-currency?", "Yes — group reporting, cross-property guest profiles, multi-currency and multi-language are native to the platform."],
 ];
 
@@ -313,7 +313,7 @@ export function Contact() {
               Book a demo
             </span>
             <h2 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
-              See HotelOS,<br /><span className="text-gradient">tailored to your portfolio.</span>
+              See BlackStone AI,<br /><span className="text-gradient">tailored to your portfolio.</span>
             </h2>
             <p className="mt-6 max-w-md text-lg text-white/70">
               A 30-minute working session with a hospitality specialist — we'll model your revenue lift and walk through the platform live.
@@ -381,7 +381,7 @@ export function Footer() {
               <div className="grid h-8 w-8 place-items-center rounded-lg bg-brand text-white">
                 <Sparkles className="h-4 w-4" />
               </div>
-              <span className="text-lg font-bold text-ink">HotelOS</span>
+              <span className="text-lg font-bold text-ink">BlackStone AI</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-ink-soft">
               The operating system for modern hospitality. Built for luxury hotels, resorts, boutique properties and vacation rentals worldwide.
@@ -401,7 +401,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-xs text-ink-soft md:flex-row md:items-center">
-          <div>© {new Date().getFullYear()} HotelOS Inc. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} BlackStone AI Inc. All rights reserved.</div>
           <div className="flex items-center gap-5">
             <span>SOC 2 Type II</span>
             <span>PCI-DSS L1</span>

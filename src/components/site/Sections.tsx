@@ -242,7 +242,7 @@ export function AIIntel() {
             An AI layer that runs <span className="text-gradient-brand">underneath everything.</span>
           </h2>
           <p className="mt-6 text-lg text-ink-soft">
-            Trained on $4B+ of hospitality transactions, the HotelOS AI engine is woven into every module — quietly making your team faster and your revenue higher.
+            Trained on $4B+ of hospitality transactions, the BlackStone AI engine is woven into every module — quietly making your team faster and your revenue higher.
           </p>
         </div>
 
@@ -326,7 +326,7 @@ export function Outcomes() {
             </h2>
           </div>
           <p className="max-w-md text-lg text-ink-soft md:text-right">
-            Average results from 1,200+ properties in their first 12 months on HotelOS.
+            Average results from 1,200+ properties in their first 12 months on BlackStone AI.
           </p>
         </div>
 
@@ -364,7 +364,7 @@ export function Comparison() {
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-sm font-semibold uppercase tracking-widest text-ink-soft">Why hotels switch</span>
           <h2 className="mt-3 text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Traditional PMS vs <span className="text-gradient-brand">HotelOS</span>
+            Traditional PMS vs <span className="text-gradient-brand">BlackStone AI</span>
           </h2>
         </div>
 
@@ -372,7 +372,7 @@ export function Comparison() {
           <div className="grid grid-cols-[1.6fr_1fr_1fr] gap-4 border-b border-border bg-surface-elevated px-6 py-5 text-sm font-semibold text-ink-soft">
             <div>Capability</div>
             <div className="text-center">Legacy PMS</div>
-            <div className="text-center">HotelOS</div>
+            <div className="text-center">BlackStone AI</div>
           </div>
           {rows.map(([label, legacy, hos], i) => (
             <div

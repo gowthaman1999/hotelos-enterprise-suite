@@ -78,10 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HotelOS — Powering the Future of Hospitality Operations" },
+      { title: "BlackStone AI — Powering the Future of Hospitality Operations" },
       { name: "description", content: "One intelligent platform for revenue growth, hotel operations, guest experience and automation. PMS, channel manager, AI revenue, guest messaging and more." },
-      { name: "author", content: "HotelOS" },
-      { property: "og:title", content: "HotelOS — Hospitality Operations Platform" },
+      { name: "author", content: "BlackStone AI" },
+      { property: "og:title", content: "BlackStone AI — Hospitality Operations Platform" },
       { property: "og:description", content: "One intelligent platform for revenue, operations, guest experience and automation across every property." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
