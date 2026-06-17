@@ -387,15 +387,15 @@ export function Footer() {
               The operating system for modern hospitality. Built for luxury hotels, resorts, boutique properties and vacation rentals worldwide.
             </p>
           </div>
-          {[
-            ["Platform", ["PMS", "Booking Engine", "Channel Manager", "AI Revenue", "Guest Messaging"]],
-            ["Company", ["About", "Customers", "Careers", "Newsroom", "Contact"]],
-            ["Resources", ["Docs", "Blog", "Help center", "Security", "Status"]],
-          ].map(([t, items]) => (
-            <div key={t as string}>
+          {([
+            ["Platform", [["PMS", "#platform"], ["Booking Engine", "#platform"], ["Channel Manager", "#platform"], ["AI Revenue", "#solutions"], ["Guest Messaging", "#solutions"]]],
+            ["Company", [["About", "#customers"], ["Customers", "#customers"], ["Careers", "#demo"], ["Newsroom", "#customers"], ["Contact", "#demo"]]],
+            ["Resources", [["Docs", "#resources"], ["Blog", "#resources"], ["Help center", "#resources"], ["Security", "#resources"], ["Status", "#resources"]]],
+          ] as Array<[string, Array<[string, string]>]>).map(([t, items]) => (
+            <div key={t}>
               <div className="text-sm font-semibold text-ink">{t}</div>
               <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
-                {(items as string[]).map(i => <li key={i}><a className="hover:text-ink">{i}</a></li>)}
+                {items.map(([label, href]) => <li key={label}><a href={href} className="hover:text-ink cursor-pointer">{label}</a></li>)}
               </ul>
             </div>
           ))}
